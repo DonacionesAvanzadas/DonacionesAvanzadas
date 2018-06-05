@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2018 a las 00:49:09
+-- Tiempo de generación: 05-06-2018 a las 05:03:21
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -81,7 +81,8 @@ CREATE TABLE `quiere` (
   `Id` int(11) NOT NULL,
   `Id_Articulo` int(11) NOT NULL,
   `Id_Usuario` int(11) NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `Estado` tinyint(1) NOT NULL,
+  `Encuentro` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,7 +100,8 @@ CREATE TABLE `usuario` (
   `Contrasena` varchar(30) NOT NULL,
   `Estrellas` int(11) NOT NULL,
   `Denuncias` int(11) NOT NULL,
-  `Tipo_Usuario` varchar(10) NOT NULL
+  `Tipo_Usuario` varchar(10) NOT NULL,
+  `Estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
