@@ -27,12 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `articulo_donar` (
-  `Id` int(11) NOT NULL,
-  `Sinopsis` text NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Imagen` varchar(60) NOT NULL,
-  `Tema` varchar(20) NOT NULL,
-  `Id_Usuario` int(11) NOT NULL
+  `ID` int(11) NOT NULL,
+  `dinopsis` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `imagen` varchar(60) NOT NULL,
+  `tema` varchar(20) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,9 +42,9 @@ CREATE TABLE `articulo_donar` (
 --
 
 CREATE TABLE `categoria` (
-  `Id` int(11) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `ID` int(11) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -54,9 +54,9 @@ CREATE TABLE `categoria` (
 --
 
 CREATE TABLE `denuncia` (
-  `Id` int(11) NOT NULL,
-  `Id_Articulo` int(11) NOT NULL,
-  `Id_Usuario` int(11) NOT NULL
+  `ID` int(11) NOT NULL,
+  `id_articulo` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -66,9 +66,9 @@ CREATE TABLE `denuncia` (
 --
 
 CREATE TABLE `pertenece` (
-  `Id` int(11) NOT NULL,
-  `Id_Articulo` int(11) NOT NULL,
-  `Id_Categoria` int(11) NOT NULL
+  `ID` int(11) NOT NULL,
+  `id_articulo` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -78,11 +78,11 @@ CREATE TABLE `pertenece` (
 --
 
 CREATE TABLE `quiere` (
-  `Id` int(11) NOT NULL,
-  `Id_Articulo` int(11) NOT NULL,
-  `Id_Usuario` int(11) NOT NULL,
-  `Estado` tinyint(1) NOT NULL,
-  `Encuentro` text NOT NULL
+  `ID` int(11) NOT NULL,
+  `id_articulo` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `estado` tinyint(1) NOT NULL,
+  `encuentro` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -92,16 +92,16 @@ CREATE TABLE `quiere` (
 --
 
 CREATE TABLE `usuario` (
-  `Id` int(11) NOT NULL,
-  `Imagen` varchar(60) NOT NULL,
-  `Nombre` varchar(70) NOT NULL,
-  `Correo` varchar(60) NOT NULL,
-  `Nombre_Usuario` varchar(30) NOT NULL,
-  `Contrasena` varchar(30) NOT NULL,
-  `Estrellas` int(11) NOT NULL,
-  `Denuncias` int(11) NOT NULL,
-  `Tipo_Usuario` varchar(10) NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `ID` int(11) NOT NULL,
+  `imagen` varchar(60) NOT NULL,
+  `nombre` varchar(70) NOT NULL,
+  `correo` varchar(60) NOT NULL,
+  `nombre_usuario` varchar(30) NOT NULL,
+  `contrasena` varchar(30) NOT NULL,
+  `estrellas` int(11) NOT NULL,
+  `denuncias` int(11) NOT NULL,
+  `tipo_usuario` varchar(10) NOT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -111,9 +111,9 @@ CREATE TABLE `usuario` (
 --
 
 CREATE TABLE `usuarios_bloqueados` (
-  `Id` int(11) NOT NULL,
-  `Id_Usuario` int(11) NOT NULL,
-  `Fecha_Sancion` date NOT NULL
+  `ID` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `fecha_sancion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -124,50 +124,50 @@ CREATE TABLE `usuarios_bloqueados` (
 -- Indices de la tabla `articulo_donar`
 --
 ALTER TABLE `articulo_donar`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_Usuario` (`Id_Usuario`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Id_Usuario` (`id_Usuario`);
 
 --
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indices de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_Articulo` (`Id_Articulo`),
-  ADD KEY `Id_Usuario` (`Id_Usuario`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `id_Articulo` (`id_Articulo`),
+  ADD KEY `id_Usuario` (`id_Usuario`);
 
 --
 -- Indices de la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_Articulo` (`Id_Articulo`),
-  ADD KEY `Id_Categoria` (`Id_Categoria`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `id_Articulo` (`id_Articulo`),
+  ADD KEY `id_Categoria` (`id_Categoria`);
 
 --
 -- Indices de la tabla `quiere`
 --
 ALTER TABLE `quiere`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `Id_Articulo` (`Id_Articulo`),
-  ADD KEY `Id_Usuario` (`Id_Usuario`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `id_Articulo` (`id_Articulo`),
+  ADD KEY `id_Usuario` (`id_Usuario`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indices de la tabla `usuarios_bloqueados`
 --
 ALTER TABLE `usuarios_bloqueados`
-  ADD PRIMARY KEY (`Id`),
+  ADD PRIMARY KEY (`ID`),
   ADD KEY `Id_Usuario` (`Id_Usuario`);
 
 --
@@ -178,37 +178,37 @@ ALTER TABLE `usuarios_bloqueados`
 -- AUTO_INCREMENT de la tabla `articulo_donar`
 --
 ALTER TABLE `articulo_donar`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `quiere`
 --
 ALTER TABLE `quiere`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuarios_bloqueados`
 --
 ALTER TABLE `usuarios_bloqueados`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
@@ -217,34 +217,34 @@ ALTER TABLE `usuarios_bloqueados`
 -- Filtros para la tabla `articulo_donar`
 --
 ALTER TABLE `articulo_donar`
-  ADD CONSTRAINT `articulo_donar_ibfk_2` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuario` (`Id`);
+  ADD CONSTRAINT `articulo_donar_ibfk_2` FOREIGN KEY (`id_Usuario`) REFERENCES `usuario` (`ID`);
 
 --
 -- Filtros para la tabla `denuncia`
 --
 ALTER TABLE `denuncia`
-  ADD CONSTRAINT `denuncia_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuario` (`Id`),
-  ADD CONSTRAINT `denuncia_ibfk_2` FOREIGN KEY (`Id_Articulo`) REFERENCES `articulo_donar` (`Id`);
+  ADD CONSTRAINT `denuncia_ibfk_1` FOREIGN KEY (`id_Usuario`) REFERENCES `usuario` (`ID`),
+  ADD CONSTRAINT `denuncia_ibfk_2` FOREIGN KEY (`id_Articulo`) REFERENCES `articulo_donar` (`ID`);
 
 --
 -- Filtros para la tabla `pertenece`
 --
 ALTER TABLE `pertenece`
-  ADD CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`Id_Articulo`) REFERENCES `articulo_donar` (`Id`),
-  ADD CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`Id_Categoria`) REFERENCES `categoria` (`Id`);
+  ADD CONSTRAINT `pertenece_ibfk_1` FOREIGN KEY (`id_Articulo`) REFERENCES `articulo_donar` (`ID`),
+  ADD CONSTRAINT `pertenece_ibfk_2` FOREIGN KEY (`id_Categoria`) REFERENCES `categoria` (`ID`);
 
 --
 -- Filtros para la tabla `quiere`
 --
 ALTER TABLE `quiere`
-  ADD CONSTRAINT `quiere_ibfk_1` FOREIGN KEY (`Id_Articulo`) REFERENCES `articulo_donar` (`Id`),
-  ADD CONSTRAINT `quiere_ibfk_2` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuario` (`Id`);
+  ADD CONSTRAINT `quiere_ibfk_1` FOREIGN KEY (`id_Articulo`) REFERENCES `articulo_donar` (`ID`),
+  ADD CONSTRAINT `quiere_ibfk_2` FOREIGN KEY (`id_Usuario`) REFERENCES `usuario` (`ID`);
 
 --
 -- Filtros para la tabla `usuarios_bloqueados`
 --
 ALTER TABLE `usuarios_bloqueados`
-  ADD CONSTRAINT `usuarios_bloqueados_ibfk_1` FOREIGN KEY (`Id_Usuario`) REFERENCES `usuario` (`Id`);
+  ADD CONSTRAINT `usuarios_bloqueados_ibfk_1` FOREIGN KEY (`id_Usuario`) REFERENCES `usuario` (`ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
