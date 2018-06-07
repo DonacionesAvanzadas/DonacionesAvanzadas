@@ -6,6 +6,8 @@
 package facades;
 
 import entities.Denuncia;
+import java.util.List;
+import javax.persistence.Query;
 
 /**
  *
@@ -15,6 +17,18 @@ public class DenunciaFacade extends AbstractFacade<Denuncia>{
     
     public DenunciaFacade() {
         super(Denuncia.class);
+    }
+    
+    public List<Denuncia> findByArticulo(Object articulo){
+        Query q = em.createQuery("SELECT t FROM Denuncia t WHERE t.articulo = :articulo");
+        q.setParameter("articulo", articulo);
+        return q.getResultList();
+    }
+    
+    public List<Denuncia> findByUsuario(Object usuario){
+        Query q = em.createQuery("SELECT t FROM Denuncia t WHERE t.usuario = :usuario");
+        q.setParameter("usuario", usuario);
+        return q.getResultList();
     }
     
 }

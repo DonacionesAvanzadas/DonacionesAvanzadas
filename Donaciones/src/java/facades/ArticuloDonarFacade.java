@@ -5,7 +5,6 @@
  */
 package facades;
 import entities.ArticuloDonar;
-import entities.Categoria;
 import java.util.List;
 import javax.persistence.Query;
 /**
@@ -17,30 +16,35 @@ public class ArticuloDonarFacade extends AbstractFacade<ArticuloDonar>{
     public ArticuloDonarFacade() {
         super(ArticuloDonar.class);
     }
-  
-     
-      public List<ArticuloDonar> findBySinopsis(Object Sinopsis){
-        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.Sinopsis = :Sinopsis");
-        q.setParameter("Sinpsis", Sinopsis);
+    
+    public List<ArticuloDonar> findBySinopsis(Object Sinopsis) {
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.sinopsis = :Sinopsis");
+        q.setParameter("Sinopsis", Sinopsis);
         return q.getResultList();
     }
-      
-      
-       public List<ArticuloDonar> findByDescripcion(Object Descripcion){
-        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.Descripcion = :Descripcion");
+     
+    public List<ArticuloDonar> findByDescripcion(Object Descripcion) {
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.descripcion = :Descripcion");
         q.setParameter("Descripcion", Descripcion);
         return q.getResultList();
     }
-       
-        public List<ArticuloDonar> findByImagen(Object Imagen){
-        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.Imagen = :Imagen");
+    
+    public List<ArticuloDonar> findByImagen(Object Imagen) {
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.imagen = :Imagen");
         q.setParameter("Imagen", Imagen);
         return q.getResultList();
     }
-        
-         public List<ArticuloDonar> findByTema(Object Tema){
-        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.Tema = :Tema");
+    
+    public List<ArticuloDonar> findByTema(Object Tema) {
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.tema = :Tema");
         q.setParameter("Tema", Tema);
         return q.getResultList();
     }
+    
+    public List<ArticuloDonar> findByUsuario(Object usuario){
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.usuario = :usuario");
+        q.setParameter("usuario", usuario);
+        return q.getResultList();
+    }
+    
 }
