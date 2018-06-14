@@ -7,11 +7,13 @@ package facades;
 
 import entities.UsuariosBloqueados;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 /**
  *
  * @author juanc
  */
+@Stateless
 public class UsuariosBloqueadosFacade extends AbstractFacade<UsuariosBloqueados> {
     
     public UsuariosBloqueadosFacade() {

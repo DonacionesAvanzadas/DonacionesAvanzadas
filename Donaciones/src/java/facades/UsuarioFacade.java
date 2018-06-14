@@ -7,15 +7,24 @@ package facades;
 
 import entities.Usuario;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 /**
  *
  * @author juanc
  */
+@Stateless
 public class UsuarioFacade extends AbstractFacade<Usuario> {
     
     public UsuarioFacade() {
         super(Usuario.class);
+    }
+    
+    public boolean checkLogin(Usuario usuario){
+        Query q = em.createQuery("SELECT t FROM Usuario t WHERE t.nombreUsuario = :nombreUsuario AND t.password = :password");
+        q.setParameter("nombreUsuario", usuario.getNombreUsuario());
+        q.setParameter("password", usuario.getPassword());
+        return !q.getResultList().isEmpty();
     }
     
     public List<Usuario> findByImagen(Object imagen){

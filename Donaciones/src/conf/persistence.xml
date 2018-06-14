@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="DonacionesPU" transaction-type="RESOURCE_LOCAL">
-    <!--jta-data-source>java:app/donaciones</jta-data-source-->
+      <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <!--<jta-data-source>java:app/donaciones</jta-data-source>-->
     <class>entities.ArticuloDonar</class>
     <class>entities.Categoria</class>
     <class>entities.Denuncia</class>
@@ -9,14 +10,15 @@
     <class>entities.Quiere</class>
     <class>entities.Usuario</class>
     <class>entities.UsuariosBloqueados</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/donacion?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="donacion"/>
       <property name="javax.persistence.jdbc.password" value="123"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="eclipselink.loggin.level" value="FINE"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
       <property name="eclipselink.ddl-generation" value="create-tables"/>
+      <property name="eclipselink.ddl-generation.output-mode" value="database" />
     </properties>
   </persistence-unit>
 </persistence>

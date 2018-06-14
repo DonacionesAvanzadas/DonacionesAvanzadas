@@ -2,12 +2,14 @@ package facades;
 
 import entities.Categoria;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 
 /**
  *
  * @author Yael Arturo Chavoya Andalón 14300094
  */
+@Stateless
 public class CategoriaFacade extends AbstractFacade<Categoria> {
 
     public CategoriaFacade() {

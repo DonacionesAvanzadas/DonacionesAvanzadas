@@ -7,12 +7,14 @@ package facades;
 
 import entities.Quiere;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 
 /**
  *
  * @author usuario
  */
+@Stateless
 public class QuiereFacade extends AbstractFacade<Quiere>{
     
     public QuiereFacade() {

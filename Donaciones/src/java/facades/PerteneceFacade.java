@@ -6,12 +6,14 @@
 package facades;
 import entities.Pertenece;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 
 /**
  *
  * @author juanc
  */
+@Stateless
 public class PerteneceFacade extends AbstractFacade<Pertenece> {
     
     public PerteneceFacade() {

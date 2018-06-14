@@ -7,12 +7,14 @@ package facades;
 
 import entities.Denuncia;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.Query;
 
 /**
  *
  * @author usuario
  */
+@Stateless
 public class DenunciaFacade extends AbstractFacade<Denuncia>{
     
     public DenunciaFacade() {
