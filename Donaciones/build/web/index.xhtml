@@ -21,7 +21,7 @@
             </div>
         </nav>
          <h:panelGroup rendered="#{loginManager.logged}">
-                <div class="container"><h1 class="center">Bienvenido, #{loginManager.currentUser.nombreUsuario}</h1>
+                <div class="container"><h1 class="center">Bienvenido, #{loginManager.currentUser.nombre}</h1>
                     <h:form><h:commandButton action="#{loginManager.doLogout}" value="Cerrar sesión" class="btn waves-effect waves-light center" /></h:form>
                 </div>
                 <h1></h1>

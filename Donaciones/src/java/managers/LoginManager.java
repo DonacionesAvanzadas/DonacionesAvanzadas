@@ -57,19 +57,7 @@ public class LoginManager implements Serializable {
         if(ejb.checkLogin(loginUser) && !matches.isEmpty()){
             logged = true;
             
-            /*
-            Esta cosa muere si intento obtener el login completo en currentUser,
-            así que por el momento sólo tiene el user y la pass
-            
-            Muere si hago
-            
             currentUser = matches.get(0);
-            
-            y no tengo idea de por qué            
-            */
-            
-            //currentUser = matches.get(0);
-            currentUser = loginUser;
             
             resetLoginUser();
             return "index";
