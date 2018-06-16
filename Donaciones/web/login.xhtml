@@ -16,8 +16,8 @@
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo">Donaciones</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/Donaciones/faces/login.xhtml"><i class="material-icons left">input</i>Ingresar</a></li>
-                    <li><a href="/Donaciones/faces/index.xhtml"><i class="material-icons left">add_box</i>Registrarse</a></li>
+                    <li><h:link outcome="login"><i class="material-icons left">input</i>Ingresar</h:link></li>
+                    <li><h:link outcome="index"><i class="material-icons left">add_box</i>Registrarse</h:link></li>
                 </ul>
             </div>
         </nav>
@@ -38,7 +38,7 @@
                             <label for="password">Contraseña</label>
                         </div>
                         
-                        <h2><h:messages globalOnly="true"/></h2>
+                        <h5><h:messages globalOnly="true"/></h5>
                     </div>
                     <div class="right">
                         <h:commandButton action="#{loginManager.doLogin}" value="Continuar" class="btn waves-effect waves-light" >
