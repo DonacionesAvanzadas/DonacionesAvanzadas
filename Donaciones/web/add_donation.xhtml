@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Donaciones - Agregar Donación</title>
+        <link href="assets/css/materialize.css" rel="stylesheet"/>
+        <link href="assets/css/styles.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/materialize.js"></script>
+        <style>
+            .card-image {
+                width: 100%;
+            }
+
+            .card-image:after {
+                content: '';
+                padding-top: 100%;
+                display: block;
+            }
+
+            .card .card-image img {
+                position: absolute;
+                width: 100%;
+                object-position: center center;
+                object-fit: cover;
+                height: 100%;
+            }
+
+            .card .card-content p {
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h1>Agregar Donación</h1>
+            <div class="row">
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">dvr</i>
+                    <input id="sinopsis" type="text"/>
+                    <label for="sinopsis">Sinopsis</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">list</i>
+                    <textarea id="desc" type="tel" class="materialize-textarea"></textarea>
+                    <label for="desc">Descripción</label>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix">more</i>
+                    <input id="subject" type="text"/>
+                    <label for="subject">Tema</label>
+                </div>
+                <div class="input-field col s6">
+                    <select multiple>
+                        <option value="" disabled selected>Selecciona la categoría</option>
+                        <option value="1">Hogar</option>
+                        <option value="2">Deportes</option>
+                    </select>
+                    <label>Categoría</label>
+                </div>
+            </div>
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Imagen</span>
+                    <input type="file"/>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text"/>
+                </div>
+            </div>
+            <div class="right">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Agregar Donación
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('select').formSelect();
+            });
+        </script>
+    </h:body>
+</html>
+

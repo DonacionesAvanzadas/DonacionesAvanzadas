@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Donaciones - Perfil</title>
+        <link href="assets/css/materialize.css" rel="stylesheet"/>
+        <link href="assets/css/styles.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/materialize.js"></script>
+        <style>
+            .full {
+                width: 100%;
+            }
+            .full a {
+                width: 100%;
+            }
+            .full a {
+                margin-bottom: 0.5rem;
+            }
+            .flex {
+                display: flex;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h1>Perfil</h1>
+            <div class="row">
+                <div class="col s4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.pexels.com/photos/278312/pexels-photo-278312.jpeg?cs=srgb&dl=adult-art-conceptual-278312.jpg&fm=jpg" />
+                        </div>
+                        <div class="card-content">
+                            <p>Kevin Martínez Virgen</p>
+                            <p class="flex"><i class="material-icons">star</i>10</p>
+                        </div>
+                        <div class="card-action">
+                            <div class="full">
+                            <a class="waves-effect waves-light btn red" href="#">
+                                <i class="material-icons left">report</i>Denunciar</a>
+                                <a class="waves-effect waves-light btn green">
+                                    <i class="material-icons left">star</i>Felicitar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div class="row">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h4>Últimas donaciones</h4>
+                            </li>
+                            <li class="collection-item">
+                                <div>Proyecto de Titulación
+                                    <a href="#!" class="secondary-content">
+                                        <i class="material-icons">keyboard_arrow_right</i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
+    </h:body>
+</html>
+
