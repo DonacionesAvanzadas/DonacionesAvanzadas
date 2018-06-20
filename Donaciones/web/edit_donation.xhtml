@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Donaciones - Editar Donación</title>
         <link href="assets/css/materialize.css" rel="stylesheet"/>
@@ -45,28 +47,30 @@
     <h:body>
         <div class="container">
             <h1>Editar Donación</h1>
+            <h:form>
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">dvr</i>
-                    <input id="sinopsis" type="text" value="Texto de prueba"/>
+                    <h:inputText id="sinopsis" value="#{}"/>
                     <label for="sinopsis">Sinopsis</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">list</i>
-                    <textarea id="desc" type="tel" class="materialize-textarea">Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba Texto de prueba</textarea>
+                    <h:inputTextarea id="desc" class="materialize-textarea" value="#{}"></h:inputTextarea>
                     <label for="desc">Descripción</label>
                 </div>
                 <div class="input-field col s6">
                     <i class="material-icons prefix">more</i>
-                    <input id="subject" type="text" value="Texto de prueba"/>
+                    <h:inputText id="subject" value="#{}"/>
                     <label for="subject">Tema</label>
                 </div>
                 <div class="input-field col s6">
-                    <select multiple>
-                        <option value="" disabled>Selecciona la categoría</option>
-                        <option value="1" selected>Hogar</option>
-                        <option value="2">Deportes</option>
-                    </select>
+                    <h:selectManyMenu id="tema" value="#{listDonations.tema}">
+                        <f:selectItem itemValue=""  itemLabel="Selecciona la categoría"/>
+                        <c:forEach items="#{listDonations.temas}" var="tema">
+                            <f:selectItem itemValue="#{tema}" itemLabel="#{tema}"/>
+                        </c:forEach>
+                    </h:selectManyMenu>
                     <label>Categoría</label>
                 </div>
                 <div class="col s6">
@@ -76,17 +80,19 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>Imagen</span>
-                    <input type="file" />
+                    <h:inputFile id="img"/>
                 </div>
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" value="tv.jpeg"/>
+                    <h:inputText class="file-path validate" value="#{}"/>
                 </div>
             </div>
+                
             <div class="right">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Guardar Donación
+                <h:commandButton action="#{}" class="btn waves-effect waves-light" value="Guardar Donación">
                     <i class="material-icons right">save</i>
-                </button>
+                </h:commandButton>
             </div>
+            </h:form>
             <h1><br></h1>
         </div>
         <script>

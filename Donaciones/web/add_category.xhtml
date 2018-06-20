@@ -12,21 +12,21 @@
     </h:head>
     <h:body>
         <div class="container">
-            <h1>Agregar Categoría</h1>
-            <form>
+            <h1 class="center">Agregar Categoría</h1>
+            <h:form class="col s12">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">bookmark</i>
-                        <input id="name" type="text" />
+                        <h:inputText id="name" value="#{}"/>
                         <label for="name">Nombre</label>
                     </div>
-                    <div class="left col s6">
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Agregar Categoría
+                    <div class="right col s6">
+                        <h:commandButton action="#{}" class="btn waves-effect waves-light" value="Agregar Categoría">
                             <i class="material-icons right">send</i>
-                        </button>
+                        </h:commandButton>
                     </div>
                 </div>  
-            </form>
+            </h:form>
         </div>
     </h:body>
 </html>
