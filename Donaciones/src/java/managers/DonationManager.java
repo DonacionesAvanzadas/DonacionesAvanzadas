@@ -22,6 +22,7 @@ import javax.faces.bean.ManagedBean;
 public class DonationManager implements Serializable{
     @EJB
     private ArticuloDonarFacade ejb;
+    private int id;
     private ArticuloDonar articulo;
 
     @PostConstruct
@@ -39,6 +40,16 @@ public class DonationManager implements Serializable{
     }
     
     public void readArticulo(){
-        this.articulo = ejb.find(this.articulo.getId());
+        this.articulo = ejb.find(this.id);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 }

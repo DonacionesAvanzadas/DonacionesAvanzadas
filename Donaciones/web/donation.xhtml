@@ -9,8 +9,9 @@
     <h:body>
         Hello from Facelets
         <f:metadata>
-            <f:viewParam id="id" name="articulo" value="#{DonationManager.articulo.id}"/>
+            <f:viewParam id="id" name="id" value="#{DonationManager.id}"/>
             <f:viewAction action="#{DonationManager.readArticulo}"/>
+            
         </f:metadata>
         #{DonationManager.articulo.descripcion}
     </h:body>

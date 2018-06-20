@@ -19,6 +19,12 @@ public class ArticuloDonarFacade extends AbstractFacade<ArticuloDonar>{
         super(ArticuloDonar.class);
     }
     
+    public ArticuloDonar find(int id){
+       Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.id = :id");
+       q.setParameter("id", id);
+       return (ArticuloDonar)q.getSingleResult();
+    }
+    
     public List<ArticuloDonar> findBySinopsis(Object Sinopsis) {
         Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.sinopsis = :Sinopsis");
         q.setParameter("Sinopsis", Sinopsis);
