@@ -43,6 +43,15 @@
         </style>
     </h:head>
     <h:body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="faces/list_donations.xhtml" class="brand-logo">Donaciones</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><h:link outcome="login"><i class="material-icons left">input</i>Ingresar</h:link></li>
+                    <li><h:link outcome="index"><i class="material-icons left">add_box</i>Registrarse</h:link></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <div class="row">
                 <h:form>
@@ -54,7 +63,7 @@
                                     <h:selectOneMenu id="tema" value="#{listDonations.tema}">
                                         <f:selectItem itemValue=""  itemLabel="Selecciona la categoría"/>
                                         <c:forEach items="#{listDonations.temas}" var="tema">
-                                            <f:selectItem itemValue="#{tema}" itemLabel="#{tema}"/>
+                                            <f:selectItem itemValue="#{tema.id}" itemLabel="#{tema.nombre}"/>
                                         </c:forEach>
                                     </h:selectOneMenu>
                                 </div>

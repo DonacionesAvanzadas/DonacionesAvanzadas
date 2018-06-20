@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/web/index.xhtml</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/ListDonationsManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/web/donation.xhtml</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/entities/ArticuloDonar.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/web/list_donations.xhtml</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/DonationManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/facades/AbstractFacade.java</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/src/java/managers/RegistroManager.java</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/web/list_donations.xhtml</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/src/java/managers/AddDonationsManager.java</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/src/java/entities/Usuario.java</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/web/add_donation.xhtml</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/src/java/managers/ListDonationsManager.java</file>
+            <file>file:/F:/Tarea/Progra/Parcial%203/DonacionesAvanzadas/Donaciones/src/java/entities/ArticuloDonar.java</file>
         </group>
     </open-files>
 </project-private>

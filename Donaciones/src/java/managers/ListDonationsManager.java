@@ -6,7 +6,11 @@
 package managers;
 
 import entities.ArticuloDonar;
+import entities.Categoria;
+import entities.Pertenece;
 import facades.ArticuloDonarFacade;
+import facades.CategoriaFacade;
+import facades.PerteneceFacade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +34,12 @@ public class ListDonationsManager implements Serializable{
     
     @EJB
     private ArticuloDonarFacade articulos;
+    @EJB
+    private CategoriaFacade categorias;
+    @EJB
+    private PerteneceFacade pertenece;
     private List<ArticuloDonar> donations;
-    private String tema;
+    private Categoria categoria;
     private String nombre;    
     
     @PostConstruct
@@ -42,27 +50,41 @@ public class ListDonationsManager implements Serializable{
     public List<ArticuloDonar> getDonations(){
         return donations;
     }
-    public List<String> getTemas(){
-        return articulos.getTemas();
+    public List<Categoria> getTemas(){
+        return categorias.findAll();
     }
     public String search(){
-        if(nombre==null && tema!=null)
-            donations = articulos.findByTema(tema);
-        else if(nombre!=null && tema==null)
+        
+        if(nombre==null && categoria!=null){
+            this.donations = getByCategoria();
+        }else if(nombre!=null && categoria==null)
             donations = articulos.findByDescripcion('%'+nombre+'%');
-        else if(nombre!=null && tema!=null)
-            donations = articulos.search(tema,'%'+nombre+'%');
-        else donations = articulos.findAll();
+        else if(nombre!=null && categoria!=null){
+            donations = articulos.findByDescripcion('%'+nombre+'%');
+            List<ArticuloDonar> articulo_categoria = getByCategoria();
+            for(ArticuloDonar x: articulo_categoria){
+                if(!donations.contains(x))
+                    donations.add(x);
+            }
+        }else donations = articulos.findAll();
         
         return "list_donations";
     }
 
-    public String getTema() {
-        return tema;
+    private List<ArticuloDonar> getByCategoria(){
+        List<Pertenece>categoria_producto;
+        categoria_producto = pertenece.findByCategoria(categoria.getId());
+        List<ArticuloDonar> articulos_categoria = new ArrayList<>();
+        categoria_producto.forEach((x)->articulos_categoria.add(x.getArticulo()));
+        return donations;
+    }
+    
+    public Categoria getTema() {
+        return categoria;
     }
 
-    public void setTema(String tema) {
-        this.tema = tema;
+    public void Categoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public String getNombre() {

@@ -51,45 +51,40 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">dvr</i>
-                        <h:inputText id="sinopsis" value="#{}"/>
+                        <h:inputText id="sinopsis" value="#{addDonationsManager.articulo.sinopsis}"/>
                         <label for="sinopsis">Sinopsis</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">list</i>
-                        <h:inputTextarea id="desc" class="materialize-textarea" value="#{}"></h:inputTextarea>
+                        <h:inputTextarea id="desc" class="materialize-textarea" value="#{addDonationsManager.articulo.descripcion}"></h:inputTextarea>
                         <label for="desc">Descripción</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">more</i>
-                        <h:inputText id="subject" value="#{}"/>
+                        <h:inputText id="subject" value="#{addDonationsManager.articulo.tema}"/>
                         <label for="subject">Tema</label>
                     </div>
                     <div class="input-field col s6">
-                        <h:selectManyMenu id="tema" value="#{listDonations.tema}">
+                        <h:selectManyMenu id="tema" value="#{addDonationsManager.categorias}">
                             <f:selectItem itemValue=""  itemLabel="Selecciona la categoría"/>
                             <c:forEach items="#{listDonations.temas}" var="tema">
-                                <f:selectItem itemValue="#{tema}" itemLabel="#{tema}"/>
+                                <f:selectItem itemValue="#{tema.id}" itemLabel="#{tema.nombre}"/>
                             </c:forEach>
                         </h:selectManyMenu>
-                        <select multiple="multiple">
-                            <option value="" disabled="disabled" selected="true">Selecciona la categoría</option>
-                            <option value="1">Hogar</option>
-                            <option value="2">Deportes</option>
-                        </select>
                         <label>Categoría</label>
                     </div>
                 </div>
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Imagen</span>
-                        <h:inputFile id="img"/>
+                        <!--h:inputFile id="img"/-->
                     </div>
                     <div class="file-path-wrapper">
                         <h:inputText class="file-path validate"/>
                     </div>
                 </div>
                 <div class="right col s6">
-                    <h:commandButton action="#{}" class="btn waves-effect waves-light" value="Agregar Donación">
+                    <h:commandButton action="#{addDonationsManager.publicarArticulo}" class="btn waves-effect waves-light" value="Agregar Donación">
                         <i class="material-icons right">send</i>
                     </h:commandButton>
                 </div>
