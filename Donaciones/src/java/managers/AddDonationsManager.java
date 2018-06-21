@@ -58,6 +58,7 @@ public class AddDonationsManager implements Serializable {
 
          Articulo.getUsuario();
          ArticuloFacade.create(Articulo);
+         Articulo = new ArticuloDonar();
          return "exito";
     }
  
