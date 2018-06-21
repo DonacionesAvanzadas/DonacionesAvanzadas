@@ -20,8 +20,8 @@ public class AddCategoriaManager implements Serializable{
     
     private Categoria categoria;
 
-    public AddCategoriaManager(Categoria categoria) {
-        this.categoria = categoria;
+    public AddCategoriaManager() {
+        this.categoria = new Categoria();
     }
 
     public Categoria getCategoria() {

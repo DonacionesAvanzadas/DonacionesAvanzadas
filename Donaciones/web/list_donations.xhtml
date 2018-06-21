@@ -43,18 +43,30 @@
         </style>
     </h:head>
     <h:body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="faces/list_donations.xhtml" class="brand-logo">Donaciones</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><h:link outcome="login"><i class="material-icons left">input</i>Ingresar</h:link></li>
+                    <li><h:link outcome="index"><i class="material-icons left">add_box</i>Registrarse</h:link></li>
+                </ul>
+            </div>
+        </nav>
+        
         <div class="container">
             <div class="row">
+                
                 <h:form>
                 <div class="col s12">
                     <div class="row">
                         <div class="col s4">
                             <div class="row">
+                                
                                 <div class="input-field col s12">
-                                    <h:selectOneMenu id="tema" value="#{listDonations.tema}">
-                                        <f:selectItem itemValue=""  itemLabel="Selecciona la categoría"/>
+                                    <h:selectOneMenu id="categoria" value="#{listDonations.categoria}">
+                                        <f:selectItem itemValue="0"  itemLabel="Selecciona la categoría"/>
                                         <c:forEach items="#{listDonations.temas}" var="tema">
-                                            <f:selectItem itemValue="#{tema}" itemLabel="#{tema}"/>
+                                            <f:selectItem itemValue="#{tema.id}" itemLabel="#{tema.nombre}"/>
                                         </c:forEach>
                                     </h:selectOneMenu>
                                 </div>
@@ -90,7 +102,7 @@
                                 <p>#{donation.descripcion}</p>
                             </div>
                             <div class="card-action">
-                                <h:link value="Ver a detalle" outcome="descip_donation">
+                                <h:link value="Ver a detalle" outcome="descrip_donation">
                                     <f:param name="id" value="#{donation.id}"/>
                                 </h:link>
                             </div>

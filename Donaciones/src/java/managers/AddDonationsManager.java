@@ -12,21 +12,27 @@ import facades.ArticuloDonarFacade;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import tools.FacesPrinter;
 /**
  *
  * @author Arturo
  */
-@Named("AddDonationsManager")
+@Named("addDonationsManager")
 @SessionScoped
 public class AddDonationsManager implements Serializable {
     @EJB
     private ArticuloDonarFacade ArticuloFacade;
+    @Inject LoginManager loginManager;
+    
     private ArticuloDonar Articulo;
+    private List<Integer> categorias;
     
     public AddDonationsManager(){
        Articulo = new ArticuloDonar();
@@ -41,9 +47,10 @@ public class AddDonationsManager implements Serializable {
     }
 
     private boolean isEmpty(String str){
+        if(str==null)return false;
         return str.trim().equals("");
     }
-    public String PublicarArticulo()
+    public String publicarArticulo()
     {
         boolean invalid = false;
         invalid |= isEmpty(Articulo.getSinopsis());
@@ -56,12 +63,19 @@ public class AddDonationsManager implements Serializable {
             return null;
         } 
 
-         Articulo.getUsuario();
+        
+         Articulo.setUsuario(loginManager.getCurrentUser());
          ArticuloFacade.create(Articulo);
          Articulo = new ArticuloDonar();
-         return "exito";
+         return "list_donations";
     }
- 
-            
-    
+
+    public List<Integer> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Integer> categorias) {
+        this.categorias = categorias;
+    }
+        
 }
