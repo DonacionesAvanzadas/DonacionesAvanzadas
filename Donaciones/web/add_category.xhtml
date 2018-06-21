@@ -17,11 +17,11 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">bookmark</i>
-                        <h:inputText id="name" value="#{}"/>
+                        <h:inputText id="name" value="#{categoriaManager.categoria.nombre}"/>
                         <label for="name">Nombre</label>
                     </div>
                     <div class="right col s6">
-                        <h:commandButton action="#{}" class="btn waves-effect waves-light" value="Agregar Categoría">
+                        <h:commandButton action="#{categoriaManager.addCategoria}" class="btn waves-effect waves-light" value="Agregar Categoría">
                             <i class="material-icons right">send</i>
                         </h:commandButton>
                     </div>
