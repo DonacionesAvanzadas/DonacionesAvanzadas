@@ -3,13 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/ListDonationsManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/AddDonationsManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/LoginManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/facades/PerteneceFacade.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/managers/AddCategoriaManager.java</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/web/list_donations.xhtml</file>
-            <file>file:/C:/Users/kevin/Documents/NetBeansProjects/DonacionesAvanzadas/Donaciones/src/java/entities/Pertenece.java</file>
+            <file>file:/C:/Users/juanc/Documents/GitHub/DonacionesAvanzadas/Donaciones/web/WEB-INF/glassfish-resources.xml</file>
         </group>
     </open-files>
 </project-private>
