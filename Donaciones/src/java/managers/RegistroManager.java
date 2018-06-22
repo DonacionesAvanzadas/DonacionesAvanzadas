@@ -23,23 +23,42 @@ public class RegistroManager implements Serializable {
     private UsuarioFacade ejb;
      
     private Usuario usuario;
-    
+    /**
+     * constructor de la clase, inicializa un usuario
+     */
     public RegistroManager(){
        usuario = new Usuario();
     }
-
+    /**
+     * reteorna el objeto usuario
+     * @return usuario
+     */
     public Usuario getUsuario() {
         return usuario;
     }
-
+    /**
+     * obtien un objeto tipo usurio par adespues asignarlo al objto del sistmea
+     * @param usuario objeto tipo usuario
+     */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
+    /**
+     *elimina los espacios que hay en la cadena
+     * @param str una cadena
+     * @return la cadena
+     */
     private boolean isEmpty(String str){
         return str.trim().equals("");
     }
-    
+    /**
+     * registra a un uaurio, obtiene nombre, nombre de usuario, correo y contraseña, en 
+     * caso de que alguna propiedad falte se lanza un mensaje de advertencia.
+     * Despues se comprueva que no este repetido el usuario, si lo esta mandea una
+     * advertencia, si no prosigue a insertar al usuario junto con el valor de
+     * estrellas predeterminadas 
+     * @return retorna una aviso de "login"
+     */
     public String registrar(){
         boolean invalid = false;
         invalid |= isEmpty(usuario.getNombre());
