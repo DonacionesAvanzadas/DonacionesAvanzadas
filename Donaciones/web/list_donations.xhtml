@@ -85,7 +85,6 @@
                             <div class="row">
                                 <div class="right col s12 flex">
                                     <h:commandButton class="btn waves-effect waves-light" action="#{listDonations.search}" value="BUSCAR"/>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -100,7 +99,11 @@
                             <c:forEach items="#{}" var="donador">
                                 <li class="collection-item">
                                     <div>
-                                        <p>#{}</p>
+                                        #{}
+                                        <h:link value="Ver perfil" outcome="profile">
+                                            <f:param name="id" value="#{}"/>
+                                            <i class="material-icons">keyboard_arrow_right</i>
+                                        </h:link>
                                     </div>
                                 </li>
                             </c:forEach>
