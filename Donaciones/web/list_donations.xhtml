@@ -55,13 +55,14 @@
         
         <div class="container">
             <div class="row">
-                
                 <h:form>
                 <div class="col s12">
                     <div class="row">
                         <div class="col s4">
                             <div class="row">
-                                
+                                <div class="col s12">
+                                    <h1>Filtros</h1>
+                                </div>
                                 <div class="input-field col s12">
                                     <h:selectOneMenu id="categoria" value="#{listDonations.categoria}">
                                         <f:selectItem itemValue="0"  itemLabel="Selecciona la categoría"/>
@@ -88,6 +89,22 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <ul class="collection with-header">
+                            <li class="collection-header">
+                                <h4>Top donadores</h4>
+                            </li>
+                            <c:forEach items="#{}" var="donador">
+                                <li class="collection-item">
+                                    <div>
+                                        <p>#{}</p>
+                                    </div>
+                                </li>
+                            </c:forEach>
+                        </ul>
                     </div>
                 </div>
                 </h:form>
