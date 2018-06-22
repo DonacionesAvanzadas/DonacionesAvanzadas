@@ -5,6 +5,7 @@
  */
 package facades;
 import entities.ArticuloDonar;
+import entities.Categoria;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.Query;
@@ -52,6 +53,12 @@ public class ArticuloDonarFacade extends AbstractFacade<ArticuloDonar>{
     public List<ArticuloDonar> findByUsuario(Object usuario){
         Query q = em.createQuery("SELECT t FROM ArticuloDonar t WHERE t.usuario = :usuario");
         q.setParameter("usuario", usuario);
+        return q.getResultList();
+    }
+    
+        public List<ArticuloDonar> getByCategoria(Categoria cat){
+        Query q = em.createQuery("SELECT t FROM ArticuloDonar t, Pertenece p WHERE p.articulo = t AND p.categoria.id = :id");
+        q.setParameter("id", cat.getId());
         return q.getResultList();
     }
     

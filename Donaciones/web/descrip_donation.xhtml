@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Donación - Información</title>
         <link href="assets/css/materialize.css" rel="stylesheet"/>
@@ -54,6 +55,7 @@ and open the template in the editor.
         </style>
     </h:head>
     <h:body>
+        #{listDonations.setCurr(param.id)}
         <div class="card container teal lighten-4">
             
         </div>
@@ -63,7 +65,7 @@ and open the template in the editor.
             </div>
             <div class="card-stacked">
                 <div class="card-content">
-                    <h2>Sinopsis donación</h2>
+                    <h2>#{listDonations.current.sinopsis}</h2>
                     <div class="divider"></div>
                     <div class="section catergoriasC">                                
                         <i class="material-icons">more</i>
@@ -74,15 +76,13 @@ and open the template in the editor.
                     </div>
                     <div class="section">
                         <p class="prodDescripcion">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque rerum vitae dolor veniam id itaque animi, exercitationem enim distinctio consequuntur!
-                        </p>
+                            #{listDonations.current.descripcion} </p>
                     </div>
                 </div>                        
                 <div class="card-action">
-                    <button class="btn waves-effect waves-light green" type="submit" name="action">
-                        <i class="material-icons left">loyalty</i>
-                        Lo quiero!
-                    </button>
+                    <form method="post">
+                    <h:commandButton class="btn waves-effect waves-light green"  value="Lo quiero!" action="#{listDonations.loQuiero}"/>
+                    </form>
                     <button class="btn waves-effect waves-light red">
                         <i class="material-icons left">report</i>
                         Denunciar
@@ -90,5 +90,10 @@ and open the template in the editor.
                 </div>
             </div>
         </div>      
+        <div> 
+            <c:forEach items="#{listDonations.quieren}" var="quiere"> 
+                #{quiere.nombre} <br></br>
+            </c:forEach>
+        </div>
     </h:body>
 </html>

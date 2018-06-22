@@ -5,6 +5,8 @@
  */
 package facades;
 
+import entities.ArticuloDonar;
+import entities.Categoria;
 import entities.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -81,4 +83,9 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         return q.getResultList();
     }
     
+    public List<Usuario> getByCategoria(ArticuloDonar art){
+        Query q = em.createQuery("SELECT t FROM Usuario t, Quiere p WHERE p.usuario = t AND p.articulo.id = :id");
+        q.setParameter("id", art.getId());
+        return q.getResultList();
+    }
 }

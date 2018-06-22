@@ -8,9 +8,13 @@ package managers;
 import entities.ArticuloDonar;
 import entities.Categoria;
 import entities.Pertenece;
+import entities.Quiere;
+import entities.Usuario;
 import facades.ArticuloDonarFacade;
 import facades.CategoriaFacade;
 import facades.PerteneceFacade;
+import facades.QuiereFacade;
+import facades.UsuarioFacade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +26,12 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.NoneScoped;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
  *
- * @author Wero
+ * @author Wero 
  */
 @ManagedBean(name="listDonations")
 @SessionScoped
@@ -38,15 +43,24 @@ public class ListDonationsManager implements Serializable{
     private CategoriaFacade categorias;
     @EJB
     private PerteneceFacade pertenece;
+    @EJB
+    private UsuarioFacade usuario;
+    @EJB
+    private QuiereFacade quiereFacade;
+    @Inject LoginManager loginManager;
+    
     private List<ArticuloDonar> donations;
     private Integer categoria;
     private String nombre;    
+    private List<Usuario> quieren;
+    
     
     @PostConstruct
     public void init() {
         
         if(donations==null)
         donations = articulos.findAll();
+        
     }
     public List<ArticuloDonar> getDonations(){
         return donations;
@@ -55,14 +69,15 @@ public class ListDonationsManager implements Serializable{
         return categorias.findAll();
     }
     public String search(){
-        
+        Categoria c = new Categoria();
+        c.setId(this.categoria);
         if(nombre.trim().equals("") && categoria!=null){
-            this.donations = getByCategoria();
+            this.donations = articulos.getByCategoria(c);
         }else if(!nombre.trim().equals("") && categoria==null)
             donations = articulos.findByDescripcion('%'+nombre+'%');
         else if(!nombre.trim().equals("") && categoria!=null){
             donations = articulos.findByDescripcion('%'+nombre+'%');
-            List<ArticuloDonar> articulo_categoria = getByCategoria();
+            List<ArticuloDonar> articulo_categoria = articulos.getByCategoria(c);
             for(ArticuloDonar x: articulo_categoria){
                 if(!donations.contains(x))
                     donations.add(x);
@@ -71,18 +86,22 @@ public class ListDonationsManager implements Serializable{
         
         return "list_donations";
     }
+    
+  private ArticuloDonar current;
 
-    private List<ArticuloDonar> getByCategoria(){
-        List<ArticuloDonar> articulos_categoria = new ArrayList<>();
-        for(ArticuloDonar x: articulos.findAll()){
-            for(Pertenece y: x.getPertenece()){
-                if(y.getCategoria().getId()==this.categoria.intValue()){
-                    
-                        articulos_categoria.add(x);
-                }
-            }
-        }
-        return articulos_categoria;
+    public ArticuloDonar getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(ArticuloDonar current) {
+        this.current = current;
+    }
+  
+    public void setCurr(int id){
+         for(ArticuloDonar x: articulos.findAll()){
+             if(x.getId() == id) current = x;
+         }
+         quieren = usuario.getByCategoria(current);
     }
     
     public Integer getCategoria() {
@@ -100,5 +119,24 @@ public class ListDonationsManager implements Serializable{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    public List<Usuario> getQuieren(){
+        return quieren;
+    }
+
+    public void setQuieren(List<Usuario> quieren) {
+        this.quieren = quieren;
+    }
+    
+    public String loQuiero(){
+        Quiere quiere = new Quiere();
+        quiere.setArticuloDonar(this.current);
+        quiere.setUsuario(loginManager.getCurrentUser());
+        quiere.setEncuentro("");
+        quiere.setEstado(false);
+        quiereFacade.create(quiere);
+        return "index";
+    }
+    
     
 }

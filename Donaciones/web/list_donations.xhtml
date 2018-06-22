@@ -96,12 +96,12 @@
                             <li class="collection-header">
                                 <h4>Top donadores</h4>
                             </li>
-                            <c:forEach items="#{}" var="donador">
+                            <c:forEach items="#{listTopDonations.usuariosDonadores}" var="donador">
                                 <li class="collection-item">
                                     <div>
-                                        #{}
+                                        #{donador.nombre}
                                         <h:link value="Ver perfil" outcome="profile">
-                                            <f:param name="id" value="#{}"/>
+                                            <f:param name="id" value="#{donador.id}"/>
                                             <i class="material-icons">keyboard_arrow_right</i>
                                         </h:link>
                                     </div>

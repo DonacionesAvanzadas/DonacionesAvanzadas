@@ -42,6 +42,14 @@ public class ProfileManager implements Serializable {
             donaciones = articulos.findByUsuario(usuarioC.getId());
     }
     
+    public void setUser(int id){
+        List<Usuario> users = usuarios.findAll();
+        for(Usuario u : users){
+            if(u.getId() == id) usuarioC = u;
+        }
+        //donaciones = articulos.findByUsuario(id);
+    }
+    
     public void setDonaciones(List<ArticuloDonar> donaciones){
         this.donaciones = donaciones;
     }

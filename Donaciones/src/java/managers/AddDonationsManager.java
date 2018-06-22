@@ -7,8 +7,12 @@ package managers;
 
 
 import entities.ArticuloDonar;
+import entities.Categoria;
+import entities.Pertenece;
 import entities.Usuario;
 import facades.ArticuloDonarFacade;
+import facades.CategoriaFacade;
+import facades.PerteneceFacade;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
@@ -29,10 +33,14 @@ import tools.FacesPrinter;
 public class AddDonationsManager implements Serializable {
     @EJB
     private ArticuloDonarFacade ArticuloFacade;
+    @EJB
+    private PerteneceFacade perteneceFacade;
+    @EJB
+    private CategoriaFacade categoriaFacade;
     @Inject LoginManager loginManager;
     
     private ArticuloDonar Articulo;
-    private List<Integer> categorias;
+    private List<String> categorias;
     
     public AddDonationsManager(){
        Articulo = new ArticuloDonar();
@@ -66,16 +74,25 @@ public class AddDonationsManager implements Serializable {
         
          Articulo.setUsuario(loginManager.getCurrentUser());
          ArticuloFacade.create(Articulo);
+         for(String cat:categorias){
+            Pertenece pertenece = new Pertenece();
+            pertenece.setArticulo(Articulo);
+            Categoria categoria = new Categoria();
+            categoria.setId(Integer.parseInt(cat));
+            pertenece.setCategoria(categoria);
+            perteneceFacade.create(pertenece);
+         }
          Articulo = new ArticuloDonar();
          return "list_donations";
     }
 
-    public List<Integer> getCategorias() {
+    public void setCategorias(List<String> categorias) {
+        this.categorias = categorias;
+    }
+    public List<String> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(List<Integer> categorias) {
-        this.categorias = categorias;
-    }
+    
         
 }
