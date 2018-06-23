@@ -32,45 +32,45 @@ public class LoginManager implements Serializable {
         loginUser.setPassword("");
     }
     
-    public LoginManager(){
-        resetLoginUser();
+     public LoginManager(){//Se declara el constructor de la clase
+        resetLoginUser();//El consutructo manda llamar está función
     }
 
-    public Usuario getLoginUser() {
-        return loginUser;
+    public Usuario getLoginUser() {//Se crea la función para obtener los datos del usuario, no recibe parametros, 
+        return loginUser;//La función retorna el objeto donde se encuentran los datos del usuario
     }
 
-    public void setLoginUser(Usuario user) {
-        this.loginUser = user;
+    public void setLoginUser(Usuario user) {//Se crea la función de set en la que se g¿guardan los datos del usuario, recibe de parametros el usuario que quiere entrar
+        this.loginUser = user;//La función iguala al objeto el dato que reciobio del nombre del usuario
     }
 
-    public Usuario getCurrentUser() {
-        return currentUser;
+    public Usuario getCurrentUser() {//Se crea la función para obtener que usuario se encuentra
+        return currentUser;//Retorna el objeto del usuario que esta dentro
     }
 
-    public boolean isLogged() {
-        return logged;
+    public boolean isLogged() {//Se crea la función que dice si algún usuario ya se encuentra dentro del sistema
+        return logged;//retorna un valor boleano de la variable para saber si un usuario ya se encuentra adentro
     }
     
-    public String doLogin(){
-        List<Usuario> matches = ejb.findByNombreUsuario(loginUser.getNombreUsuario());
-        if(ejb.checkLogin(loginUser) && !matches.isEmpty()){
-            logged = true;
+    public String doLogin(){//Se crea la función para hacer el login, no recibe parametros
+        List<Usuario> matches = ejb.findByNombreUsuario(loginUser.getNombreUsuario());//Busca en la BD si existe algún usuario con el usuario que trata de ingresar
+        if(ejb.checkLogin(loginUser) && !matches.isEmpty()){//Hace una comparación si se encontró un usuario, si es positivo
+            logged = true;//La variable logged la pone en verdadero para saber que ya hay un usuario connectado
             
-            currentUser = matches.get(0);
+            currentUser = matches.get(0);//Iguala el usuario que entra al primer resultado que se encontró
             
-            resetLoginUser();
-            return "index";
-        } else {
-            FacesPrinter.addMsg("Login no valido :c");
-            return null;
+            resetLoginUser();//manda llamar la función de resetear los valores de login
+            return "index";//retorna index que es a donde se va a redirigir al usuario
+        } else {//Si no existe alguna coincidencia
+            FacesPrinter.addMsg("Login no valido :c");//Manda el mensaje de que el login fue invalido
+            return null;//retorna null 
         }
     }
     
-    public String doLogout(){
-        currentUser = null;
-        logged = false;
-        return "login";
+    public String doLogout(){//Se crea la función para cerrar sesión, no recibe parametros
+        currentUser = null;//Quita el usuario que ya esta dentro del sistema
+        logged = false;//Pone la variable looged en falso para indicar que nadie se encuentra dentro
+        return "login";//Retorna login que es a donde se va a redirigir al usuario
     }
 
 }
