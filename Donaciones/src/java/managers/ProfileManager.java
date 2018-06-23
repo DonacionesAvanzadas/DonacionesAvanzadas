@@ -30,18 +30,25 @@ public class ProfileManager implements Serializable {
     
     private Usuario usuarioC;
     private List<ArticuloDonar> donaciones;
-    
+    /**
+     * constructor
+     */
     public ProfileManager() {
         this.usuarioC = new Usuario();
         this.donaciones = null;
     }
-    
+    /**
+     * asigna el id del usuario al articulo
+     */
     @PostConstruct
     public void init() {
         if(donaciones == null)
             donaciones = articulos.findByUsuario(usuarioC.getId());
     }
-    
+    /**
+     * asigna el id al usuario
+     * @param id 
+     */
     public void setUser(int id){
         List<Usuario> users = usuarios.findAll();
         for(Usuario u : users){
@@ -65,7 +72,9 @@ public class ProfileManager implements Serializable {
     public Usuario getUsuarioC() {
         return this.usuarioC;
     }
-    
+    /**
+     * aumenta las estrallas de un determinado usuario
+     */
     public void aumentarEstrellas() {
         int estrellas = usuarioC.getEstrellas();
         usuarioC.setEstrellas(estrellas++);

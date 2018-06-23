@@ -42,6 +42,11 @@ public class EditDonationsManager implements Serializable {
     private boolean isEmpty(String str){
         return str.trim().equals("");
     }
+    /**
+     * modifica un articulo, en caso de que no se ingrese correctamente un
+     * compo se marcara un advertencia
+     * @return un aviso 
+     */
     public String EditarArticulo()
     {
         boolean invalid = false;

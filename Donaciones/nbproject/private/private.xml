@@ -3,7 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/facades/PerteneceFacade.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/DonationManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/EditDonationsManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/ProfileManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/AddCategoriaManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/LoginManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/facades/ArticuloDonarFacade.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/RegistroManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/AddDonationsManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/TopManager.java</file>
+            <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/managers/ListDonationsManager.java</file>
             <file>file:/C:/xampp/htdocs/img/DonacionesAvanzadas/Donaciones/src/java/tools/FacesPrinter.java</file>
         </group>
     </open-files>

@@ -68,6 +68,10 @@ public class ListDonationsManager implements Serializable{
     public List<Categoria> getTemas(){
         return categorias.findAll();
     }
+    /**
+     * busca por categoria y retorna los articulos
+     * @return retorna un mensaje
+     */
     public String search(){
         Categoria c = new Categoria();
         c.setId(this.categoria);
@@ -96,7 +100,10 @@ public class ListDonationsManager implements Serializable{
     public void setCurrent(ArticuloDonar current) {
         this.current = current;
     }
-  
+  /**
+   * determina quien quierre un articulo
+   * @param id 
+   */
     public void setCurr(int id){
          for(ArticuloDonar x: articulos.findAll()){
              if(x.getId() == id) current = x;
@@ -127,7 +134,10 @@ public class ListDonationsManager implements Serializable{
     public void setQuieren(List<Usuario> quieren) {
         this.quieren = quieren;
     }
-    
+    /**
+     * indica que un articulo lo quiere un usuario
+     * @return un mensaje
+     */
     public String loQuiero(){
         Quiere quiere = new Quiere();
         quiere.setArticuloDonar(this.current);

@@ -24,7 +24,9 @@ public class TopManager implements Serializable{
         return usuariosDonadores;
     }
     
-    
+    /**
+     * mustra llista de los usuarios con las mejores calificaciones
+     */
     @PostConstruct
     public void init() {
         
